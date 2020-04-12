@@ -1,0 +1,15 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>bjc</groupId>
+  <artifactId>firmal</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>firmal</name>
+  <description>Local browser for directories of HTML files. Created originally for browsing downloaded tumblr blogs</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>bjc</groupId>
+  		<artifactId>BJC-Utils2</artifactId>
+  		<version>1.0.0</version>
+  	</dependency>
+  </dependencies>
+</project>
