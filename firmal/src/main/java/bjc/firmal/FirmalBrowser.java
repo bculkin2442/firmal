@@ -18,10 +18,24 @@ import bjc.utils.gui.SimpleDialogs;
 import bjc.utils.gui.SimpleKeyedButton;
 import bjc.utils.gui.layout.VLayout;
 
+/**
+ * Main browser for Firmal.
+ * @author Ben Culkin
+ *
+ */
 public class FirmalBrowser extends JPanel {
+	/**
+	 * Exception thrown when we got a directory when should've gotten a non directory.
+	 * @author Ben Culkin
+	 *
+	 */
 	public class DirectoryExpected extends RuntimeException {
 		private static final long serialVersionUID = 6614868098505684922L;
 
+		/**
+		 * Create a new exception.
+		 * @param pth The path to the directory.
+		 */
 		public DirectoryExpected(String pth) {
 			super(String.format("Non-directory '%s' passed where a directory was expected", pth));
 		}
@@ -38,6 +52,11 @@ public class FirmalBrowser extends JPanel {
 
 	private JFrame root;
 
+	/**
+	 * Create a new browser.
+	 * 
+	 * @param root The root window.
+	 */
 	public FirmalBrowser(JFrame root) {
 		super();
 		
@@ -92,6 +111,9 @@ public class FirmalBrowser extends JPanel {
 		add(BorderLayout.CENTER, scrollPane);
 	}
 
+	/**
+	 * Move the browser to the next file.
+	 */
 	public void moveNext() {
 		boolean res = loadedFiles.right();
 		if (!res) {
@@ -102,6 +124,9 @@ public class FirmalBrowser extends JPanel {
 		loadFile(loadedFiles.item());
 	}
 
+	/**
+	 * Move the browser to the last file.
+	 */
 	public void moveLast() {
 		if (loadedFiles.atEnd()) {
 			SimpleDialogs.showMessage(this, "Already There", "Already at the last file");
@@ -113,6 +138,9 @@ public class FirmalBrowser extends JPanel {
 		loadFile(loadedFiles.item());
 	}
 
+	/**
+	 * Move the browser to the previous file.
+	 */
 	public void movePrevious() {
 		boolean res = loadedFiles.left();
 		if (!res) {
@@ -123,6 +151,9 @@ public class FirmalBrowser extends JPanel {
 		loadFile(loadedFiles.item());
 	}
 
+	/**
+	 * Move the browser to the first file.
+	 */
 	public void moveFirst() {
 		if (loadedFiles.position() == 0) {
 			SimpleDialogs.showMessage(this, "Already There", "Already at the first file");
@@ -134,6 +165,12 @@ public class FirmalBrowser extends JPanel {
 		loadFile(loadedFiles.item());
 	}
 
+	/**
+	 * Opens a directory, populating the list of files.
+	 * @param dir The directory to open.
+	 * 
+	 * @throws DirectoryExpected The argument must be a directory.
+	 */
 	public void openDirectory(File dir) {
 		if (!dir.isDirectory())
 			throw new DirectoryExpected(dir.getAbsolutePath());

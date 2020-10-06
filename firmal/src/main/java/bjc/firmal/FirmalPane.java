@@ -14,7 +14,16 @@ import javax.swing.KeyStroke;
 import bjc.utils.gui.SimpleFileChooser;
 import bjc.utils.gui.layout.AutosizeLayout;
 
+/**
+ * Pane for Firmal.
+ * @author Ben Culkin
+ *
+ */
 public class FirmalPane {
+	/**
+	 * Create a new Firmal Pane.
+	 * @return The firmal pane.
+	 */
 	public static JFrame createFirmalPane() {
 		JFrame mainframe = new JFrame("Firmal Browser");
 		mainframe.setLayout(new AutosizeLayout());
