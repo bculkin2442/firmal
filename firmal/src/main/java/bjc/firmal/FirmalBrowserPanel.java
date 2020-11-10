@@ -23,7 +23,7 @@ import bjc.utils.gui.layout.VLayout;
  * @author Ben Culkin
  *
  */
-public class FirmalBrowser extends JPanel {
+public class FirmalBrowserPanel extends JPanel {
 	/**
 	 * Exception thrown when we got a directory when should've gotten a non directory.
 	 * @author Ben Culkin
@@ -57,7 +57,7 @@ public class FirmalBrowser extends JPanel {
 	 * 
 	 * @param root The root window.
 	 */
-	public FirmalBrowser(JFrame root) {
+	public FirmalBrowserPanel(JFrame root) {
 		super();
 		
 		this.loadedFiles = new SingleTape<>();

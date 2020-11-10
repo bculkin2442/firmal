@@ -17,7 +17,7 @@ public class Firmal {
 	 * @param args Currently unused CLI args.
 	 */
 	public static void main(String[] args) {
-		JFrame frame = FirmalPane.createFirmalPane();
+		JFrame frame = FirmalFrame.createFirmalPane();
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
 		frame.pack();

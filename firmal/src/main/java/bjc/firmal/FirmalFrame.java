@@ -19,7 +19,7 @@ import bjc.utils.gui.layout.AutosizeLayout;
  * @author Ben Culkin
  *
  */
-public class FirmalPane {
+public class FirmalFrame {
 	/**
 	 * Create a new Firmal Pane.
 	 * @return The firmal pane.
@@ -28,7 +28,7 @@ public class FirmalPane {
 		JFrame mainframe = new JFrame("Firmal Browser");
 		mainframe.setLayout(new AutosizeLayout());
 
-		FirmalBrowser browser = new FirmalBrowser(mainframe);
+		FirmalBrowserPanel browser = new FirmalBrowserPanel(mainframe);
 		
 		JMenuBar menuBar = new JMenuBar();
 		
