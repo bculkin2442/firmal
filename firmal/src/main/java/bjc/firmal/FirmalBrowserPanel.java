@@ -24,23 +24,6 @@ import bjc.utils.gui.layout.VLayout;
  *
  */
 public class FirmalBrowserPanel extends JPanel {
-	/**
-	 * Exception thrown when we got a directory when should've gotten a non directory.
-	 * @author Ben Culkin
-	 *
-	 */
-	public class DirectoryExpected extends RuntimeException {
-		private static final long serialVersionUID = 6614868098505684922L;
-
-		/**
-		 * Create a new exception.
-		 * @param pth The path to the directory.
-		 */
-		public DirectoryExpected(String pth) {
-			super(String.format("Non-directory '%s' passed where a directory was expected", pth));
-		}
-	}
-
 	private static final long serialVersionUID = 9078988253392361649L;
 
 	private JEditorPane contentPane;
@@ -79,25 +62,17 @@ public class FirmalBrowserPanel extends JPanel {
 		navButtonPanel.setLayout(new GridLayout(2, 2));
 
 		SimpleKeyedButton firstButton = new SimpleKeyedButton("<< First");
-		firstButton.setGlobalDefaultKeystroke("firstFile", "control shift P", (aev) -> {
-			moveFirst();
-		});
+		firstButton.setGlobalDefaultKeystroke("firstFile", "control shift P", (aev) -> moveFirst());
 		firstButton.setMnemonic(KeyEvent.VK_F);
 
 		SimpleKeyedButton prevButton = new SimpleKeyedButton("< Previous");
-		prevButton.setGlobalDefaultKeystroke("prevFile", "control P", (ev) -> {
-			movePrevious();
-		});
+		prevButton.setGlobalDefaultKeystroke("prevFile", "control P", (ev) -> movePrevious());
 
 		SimpleKeyedButton lastButton = new SimpleKeyedButton("Last >>");
-		lastButton.setGlobalDefaultKeystroke("lastFile", "control shift N", (ev) -> {
-			moveLast();
-		});
+		lastButton.setGlobalDefaultKeystroke("lastFile", "control shift N", (ev) -> moveLast());
 
 		SimpleKeyedButton nextButton = new SimpleKeyedButton("Next >");
-		nextButton.setGlobalDefaultKeystroke("nextFile", "control N", (ev) -> {
-			moveNext();
-		});
+		nextButton.setGlobalDefaultKeystroke("nextFile", "control N", (ev) -> moveNext());
 
 		navButtonPanel.add(firstButton);
 		navButtonPanel.add(lastButton);
