@@ -81,22 +81,17 @@ public class FirmalBrowserPanel extends JPanel {
 		navButtonPanel.setLayout(new GridLayout(2, 2));
 
 		SimpleKeyedButton firstButton = new SimpleKeyedButton("<< First");
-		firstButton.setGlobalDefaultKeystroke("firstFile", "control shift P", (aev) -> {
-			moveFirst();
-		});
+		firstButton.setGlobalDefaultKeystroke("firstFile", "control shift P", (aev) -> moveFirst());
 		firstButton.setMnemonic(KeyEvent.VK_F);
 
 		SimpleKeyedButton prevButton = new SimpleKeyedButton("< Previous");
-		prevButton.setGlobalDefaultKeystroke("prevFile", "control P", (ev) -> {
-			movePrevious();
-		});
+		prevButton.setGlobalDefaultKeystroke("prevFile", "control P", (ev) -> movePrevious());
 
 		SimpleKeyedButton lastButton = new SimpleKeyedButton("Last >>");
-		lastButton.setGlobalDefaultKeystroke("lastFile", "control shift N", (ev) -> {
-			moveLast();
-		});
+		lastButton.setGlobalDefaultKeystroke("lastFile", "control shift N", (ev) -> moveLast());
 
 		SimpleKeyedButton nextButton = new SimpleKeyedButton("Next >");
+		
 		nextButton.setGlobalDefaultKeystroke("nextFile", "control N", (ev) -> {
 			moveNext();
 		});
@@ -105,7 +100,7 @@ public class FirmalBrowserPanel extends JPanel {
 	    nextButton.setGlobalDefaultKeystroke("randomFile", "control R", (ev) -> {
 	        randomFile();
 	    });
-
+	    
 		navButtonPanel.add(firstButton);
 		navButtonPanel.add(lastButton);
 		navButtonPanel.add(prevButton);
