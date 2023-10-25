@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.*;
 
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
@@ -24,6 +25,7 @@ import bjc.utils.gui.layout.VLayout;
  *
  */
 public class FirmalBrowserPanel extends JPanel {
+    private static final Random RNG = new Random();
 	/**
 	 * Exception thrown when we got a directory when should've gotten a non directory.
 	 * @author Ben Culkin
@@ -71,7 +73,7 @@ public class FirmalBrowserPanel extends JPanel {
 		
 		JScrollPane scrollPane = new JScrollPane(contentPane);
 
-		JPanel buttonPanel = new JPanel(new VLayout(2));
+		JPanel buttonPanel = new JPanel(new VLayout(3));
 
 		JButton refreshButton = new JButton("Refresh");
 
@@ -98,6 +100,11 @@ public class FirmalBrowserPanel extends JPanel {
 		nextButton.setGlobalDefaultKeystroke("nextFile", "control N", (ev) -> {
 			moveNext();
 		});
+		
+	    SimpleKeyedButton randomButton = new SimpleKeyedButton("Random");
+	    nextButton.setGlobalDefaultKeystroke("randomFile", "control R", (ev) -> {
+	        randomFile();
+	    });
 
 		navButtonPanel.add(firstButton);
 		navButtonPanel.add(lastButton);
@@ -106,12 +113,20 @@ public class FirmalBrowserPanel extends JPanel {
 
 		buttonPanel.add(refreshButton);
 		buttonPanel.add(navButtonPanel);
+		buttonPanel.add(randomButton);
 
 		add(BorderLayout.PAGE_END, buttonPanel);
 		add(BorderLayout.CENTER, scrollPane);
 	}
 
-	/**
+	private void randomFile() {
+	    int pos = RNG.nextInt(loadedFiles.size());
+	    
+	    loadedFiles.seekTo(pos);
+	    loadFile(loadedFiles.item());
+    }
+
+    /**
 	 * Move the browser to the next file.
 	 */
 	public void moveNext() {
